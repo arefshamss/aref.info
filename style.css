@@ -9,7 +9,6 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  overscroll-behavior: none;
   background: #0b0e14;
 }
 
