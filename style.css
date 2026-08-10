@@ -231,7 +231,7 @@ body {
   font-size: 4rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.2rem;
 }
@@ -460,7 +460,8 @@ a {
   }
 
   .name {
-    font-size: 3.2rem;
+    font-size: 3rem;
+    margin-bottom: 1.6rem;
   }
 
   .title {
