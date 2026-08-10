@@ -8,6 +8,9 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  background-color: #0b0e14;
 }
 
 body {
@@ -22,6 +25,8 @@ body {
   overflow-x: hidden;
   position: relative;
   user-select: none;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .background-layer {
