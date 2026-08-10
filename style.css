@@ -10,7 +10,7 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   overscroll-behavior: none;
-  background-color: #0b0e14;
+  background: #0b0e14;
 }
 
 body {
@@ -27,87 +27,7 @@ body {
   user-select: none;
   min-height: 100vh;
   margin: 0;
-}
-
-.background-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /*background: linear-gradient(135deg, #2948c5 0%, #691212 100%);*/
-  background: linear-gradient(135deg, #0b0e14 0%, #121826 100%);
-  z-index: -2;
-}
-
-/* Animated Background ==================================== */
-.bg-animation {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.floating-shape {
-  position: absolute;
-  background: radial-gradient(
-    circle,
-    rgba(100, 150, 255, 0.18),
-    rgba(0, 0, 0, 0) 70%
-  );
-  filter: blur(90px);
-  animation: float 30s infinite ease-in-out;
-  border-radius: 50%;
-  /*background: rgba(255, 255, 255, 0.1);*/
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /*animation: float 20s infinite ease-in-out;*/
-
-  will-change: transform;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-}
-
-.shape1 {
-  width: 30rem;
-  height: 30rem;
-  top: -15rem;
-  left: -15rem;
-  animation-delay: 0s;
-}
-
-.shape2 {
-  width: 20rem;
-  height: 20rem;
-  bottom: -10rem;
-  right: -10rem;
-  animation-delay: 5s;
-}
-
-.shape3 {
-  width: 15rem;
-  height: 15rem;
-  top: 50%;
-  left: 10%;
-  animation-delay: 10s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  33% {
-    /*transform: translateY(-100px) rotate(120deg) scale(1.1);*/
-    transform: translateY(-6rem) scale(1.05);
-  }
-  66% {
-    /*transform: translateY(100px) rotate(240deg) scale(0.9);*/
-    transform: translateY(6rem) scale(0.95);
-  }
+  isolation: isolate;
 }
 
 /* Main Container ==================================== */
@@ -126,8 +46,8 @@ body {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 3rem;
   /*border: 1px solid rgba(255, 255, 255, 0.2);*/
   /*box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);*/
@@ -138,8 +58,8 @@ body {
   max-width: 50rem;
   width: 100%;
   transform: translateY(0);
-  /*transition: all 0.3s ease;*/
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  /* transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); */
+  transition: none;
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -363,71 +283,6 @@ body {
   z-index: 1;
 }
 
-/* Particles ==================================== */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.particle {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  animation: particle-float 15s infinite linear;
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-/* Responsive ==================================== */
-
-/* 1200px / 75em ===================== */
-@media (min-width: 75em) {
-  .container::before,
-  .container::after {
-    content: "";
-    position: absolute;
-    width: 30rem;
-    height: 30rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    filter: blur(100px);
-  }
-
-  .container::before {
-    top: 10%;
-    left: 5%;
-    /*background: rgba(255, 100, 200, 0.2);*/
-    background: rgba(201, 179, 126, 0.12);
-  }
-
-  .container::after {
-    bottom: 10%;
-    right: 5%;
-    /*background: rgba(100, 200, 255, 0.2);*/
-    background: rgba(139, 143, 156, 0.12);
-  }
-}
-
 /* Loading Animation ============ */
 .glass-card {
   animation: slideUp 0.8s ease-out;
@@ -452,10 +307,85 @@ a {
   text-decoration: none !important;
 }
 
+/* Responsive ==================================== */
+
+/* 1200px / 75em ===================== */
+@media (min-width: 75em) {
+  .container::before,
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .container::before {
+    top: -10rem;
+    left: -10rem;
+    background: rgba(201, 179, 126, 0.1);
+  }
+
+  .container::after {
+    bottom: -10rem;
+    right: -10rem;
+    background: rgba(139, 143, 156, 0.1);
+  }
+}
+
+@media (max-width: 74.99em) {
+  .container::before,
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .container::before {
+    top: -8rem;
+    left: -8rem;
+    background: rgba(201, 179, 126, 0.08);
+  }
+
+  .container::after {
+    bottom: -8rem;
+    right: -8rem;
+    background: rgba(139, 143, 156, 0.08);
+  }
+}
+
 /* 768px / 48em ==================== */
 @media (max-width: 48em) {
+  .container::before,
+  .container::after {
+    width: 20rem;
+    height: 20rem;
+    filter: blur(80px);
+    opacity: 0.5;
+  }
+
+  .container::before {
+    top: -6rem;
+    left: -6rem;
+  }
+
+  .container::after {
+    bottom: -6rem;
+    right: -6rem;
+  }
+
   .glass-card {
-    padding: 4rem 2rem;
+    padding: 4rem 3rem;
     margin: 2rem;
   }
 
@@ -498,5 +428,47 @@ a {
     width: 4.5rem;
     height: 4.5rem;
     font-size: 2rem;
+  }
+}
+
+/* 370px / 23.125em ==================== */
+@media (max-width: 23.125em) {
+  .glass-card {
+    padding: 3.5rem 2rem;
+  }
+
+  .name {
+    font-size: 2.8rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .main-btn {
+    padding: 1.2rem 2rem;
+    gap: 0.7rem;
+  }
+
+  .social-links {
+    gap: 1.2rem;
+  }
+}
+
+/* 340px / 21.25em ==================== */
+@media (max-width: 21.25em) {
+  .glass-card {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .name {
+    font-size: 2.6rem;
+  }
+
+  .main-btn {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .social-links {
+    gap: 1rem;
   }
 }
