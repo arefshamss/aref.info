@@ -1,32 +1,42 @@
-// Add interactive glow effect on mouse move
-document.addEventListener("mousemove", (e) => {
-  const card = document.querySelector(".glass-card");
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+const card = document.querySelector(".glass-card");
 
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+if (card && window.matchMedia("(pointer: fine)").matches) {
+  let targetRotateX = 0;
+  let targetRotateY = 0;
 
-  // const angleX = (y - centerY) / 30;
-  // const angleY = (centerX - x) / 30;
-  // card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+  let currentRotateX = 0;
+  let currentRotateY = 0;
 
-  const maxRotate = 5;
+  function animateCard() {
+    currentRotateX += (targetRotateX - currentRotateX) * 0.08;
+    currentRotateY += (targetRotateY - currentRotateY) * 0.08;
 
-  const angleX = ((y - centerY) / rect.height) * maxRotate;
-  const angleY = ((centerX - x) / rect.width) * maxRotate;
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(${currentRotateX}deg)
+      rotateY(${currentRotateY}deg)
+    `;
 
-  card.style.transform = `perspective(1200px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-});
+    requestAnimationFrame(animateCard);
+  }
 
-// Reset card transform when mouse leaves
-document
-  .querySelector(".glass-card")
-  .addEventListener("mouseleave", function () {
-    // this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    this.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg)";
+  document.addEventListener("mousemove", (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+
+    const maxRotate = 5;
+
+    targetRotateY = (0.5 - mouseX) * maxRotate * 2;
+    targetRotateX = (mouseY - 0.5) * maxRotate * 2;
   });
+
+  document.addEventListener("mouseleave", () => {
+    targetRotateX = 0;
+    targetRotateY = 0;
+  });
+
+  animateCard();
+}
 
 // Add click ripple effect to social links
 document.querySelectorAll(".social-link").forEach((link) => {
