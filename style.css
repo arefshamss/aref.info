@@ -21,12 +21,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
   position: relative;
   user-select: none;
-  min-height: 100vh;
   margin: 0;
   isolation: isolate;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Main Container ==================================== */

@@ -1,6 +1,6 @@
 const card = document.querySelector(".glass-card");
 
-if (card && window.matchMedia("(pointer: fine)").matches) {
+if (card) {
   let targetRotateX = 0;
   let targetRotateY = 0;
 
@@ -20,20 +20,50 @@ if (card && window.matchMedia("(pointer: fine)").matches) {
     requestAnimationFrame(animateCard);
   }
 
-  document.addEventListener("mousemove", (e) => {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+  function setRotation(clientX, clientY) {
+    const mouseX = clientX / window.innerWidth;
+    const mouseY = clientY / window.innerHeight;
 
     const maxRotate = 5;
 
     targetRotateY = (0.5 - mouseX) * maxRotate * 2;
     targetRotateX = (mouseY - 0.5) * maxRotate * 2;
-  });
+  }
 
-  document.addEventListener("mouseleave", () => {
+  function resetRotation() {
     targetRotateX = 0;
     targetRotateY = 0;
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    setRotation(e.clientX, e.clientY);
   });
+
+  document.addEventListener("mouseleave", resetRotation);
+  window.addEventListener("blur", resetRotation);
+
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      if (e.touches.length > 0) {
+        setRotation(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "touchmove",
+    (e) => {
+      if (e.touches.length > 0) {
+        setRotation(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener("touchend", resetRotation);
+  document.addEventListener("touchcancel", resetRotation);
 
   animateCard();
 }
