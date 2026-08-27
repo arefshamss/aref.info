@@ -88,19 +88,126 @@ document.querySelectorAll(".social-link").forEach((link) => {
   });
 });
 
-// Add typing effect to title (optional enhancement)
-const title = document.querySelector(".title");
-const originalText = title.textContent;
-title.textContent = "";
-let charIndex = 0;
+///////////////////////////////////////////////////////////
+// Typing Effect
 
-function typeWriter() {
-  if (charIndex < originalText.length) {
-    title.textContent += originalText.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, 100);
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const typingElements = document.querySelectorAll(".typing");
 
-// Start typing effect when page loads
-setTimeout(typeWriter, 1000);
+  typingElements.forEach((container) => {
+    const typingSpeed = Number(container.dataset.speed) || 20;
+    const startDelay = Number(container.dataset.delay) || 500;
+
+    const fullHeight = container.getBoundingClientRect().height;
+
+    container.style.minHeight = `${fullHeight}px`;
+
+    const textNodes = [];
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+
+    let currentNode;
+
+    while ((currentNode = walker.nextNode())) {
+      if (currentNode.nodeValue.trim().length > 0) {
+        textNodes.push({
+          node: currentNode,
+          text: currentNode.nodeValue,
+        });
+      }
+    }
+
+    textNodes.forEach((item) => {
+      item.node.nodeValue = "";
+    });
+
+    let currentNodeIndex = 0;
+    let currentCharIndex = 0;
+
+    function typeWriter() {
+      if (currentNodeIndex >= textNodes.length) {
+        return;
+      }
+
+      const currentTextNode = textNodes[currentNodeIndex];
+      const currentText = currentTextNode.text;
+
+      if (currentCharIndex < currentText.length) {
+        const char = currentText.charAt(currentCharIndex);
+
+        currentTextNode.node.nodeValue += char;
+        currentCharIndex++;
+
+        let delay = char.trim() === "" ? 0 : typingSpeed;
+
+        if ([".", "،", "؛", "؟", "!"].includes(char)) {
+          delay = typingSpeed * 4;
+        }
+
+        setTimeout(typeWriter, delay);
+      } else {
+        currentNodeIndex++;
+        currentCharIndex = 0;
+
+        typeWriter();
+      }
+    }
+
+    setTimeout(typeWriter, startDelay);
+  });
+});
+
+///////////////////////////////////////////////////////////
+// Counter Animation
+document.addEventListener("DOMContentLoaded", () => {
+  const counterElements = document.querySelectorAll(".counter");
+
+  counterElements.forEach((element) => {
+    const originalText = element.textContent.trim();
+    const targetNumber = Number(originalText.replace(/[^\d]/g, ""));
+    const prefix = originalText.match(/^\D+/)?.[0] || "";
+    const suffix = originalText.match(/\D+$/)?.[0] || "";
+
+    if (!targetNumber) return;
+
+    element.textContent = `${prefix}0${suffix}`;
+
+    const slowCount = 10;
+    const fastTarget = Math.max(0, targetNumber - slowCount);
+
+    const fastDuration = 400;
+    let startTime = null;
+    function fastPhase(currentTime) {
+      if (!startTime) startTime = currentTime;
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / fastDuration, 1);
+      const eased = 1 - Math.pow(1 - progress, 2);
+
+      const current = Math.floor(fastTarget * eased);
+      element.textContent = `${prefix}${current.toLocaleString("en-US")}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(fastPhase);
+      } else {
+        currentSlowNumber = fastTarget;
+        slowPhase();
+      }
+    }
+
+    let currentSlowNumber = fastTarget;
+
+    function slowPhase() {
+      if (currentSlowNumber < targetNumber) {
+        currentSlowNumber++;
+        element.textContent = `${prefix}${currentSlowNumber.toLocaleString("en-US")}${suffix}`;
+
+        const remaining = targetNumber - currentSlowNumber;
+        const stepDelay = 40 + (slowCount - remaining) * 8;
+
+        setTimeout(slowPhase, stepDelay);
+      }
+    }
+
+    requestAnimationFrame(fastPhase);
+  });
+});

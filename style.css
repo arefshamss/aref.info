@@ -493,7 +493,7 @@ a {
   align-items: center;
 }
 
-.nout-found-container {
+.not-found-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -501,7 +501,7 @@ a {
   gap: 8rem;
 }
 
-.nout-found-container-inner {
+.not-found-container-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -509,79 +509,92 @@ a {
   gap: 4rem;
 }
 
-.nout-found-container h1,
-.nout-found-container h2 {
+.not-found-inner-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.not-found-container h1,
+.not-found-container h2,
+.not-found-container p {
   color: #fff;
 }
 
-.nout-found-container h1 {
+.not-found-container h1 {
   font-size: 24rem;
   line-height: 1;
 }
-.nout-found-container h2 {
+.not-found-container h2 {
   font-size: 3.6rem;
+  line-height: 1;
+}
+.not-found-container p {
+  font-size: 1.6rem;
   line-height: 1;
 }
 
 /* 1368px / 85.5em =================== */
 @media (max-width: 85.5em) {
-  .nout-found-container h1 {
+  .not-found-container h1 {
     font-size: 22rem;
   }
-  .nout-found-container h2 {
+  .not-found-container h2 {
     font-size: 3.4rem;
   }
 }
 /* 1200px / 75em ===================== */
 @media (max-width: 75em) {
-  .nout-found-container h1 {
+  .not-found-container h1 {
     font-size: 20rem;
   }
-  .nout-found-container h2 {
+  .not-found-container h2 {
     font-size: 3.2rem;
   }
 }
 
 /* 1024px / 64em ===================== */
 @media (max-width: 64em) {
-  .nout-found-container h1 {
+  .not-found-container h1 {
     font-size: 18rem;
   }
-  .nout-found-container h2 {
+  .not-found-container h2 {
     font-size: 3rem;
   }
 }
 
 /* 880px / 55em ====================== */
 @media (max-width: 55em) {
-  .nout-found-container {
+  .not-found-container {
     gap: 6rem;
   }
 
-  .nout-found-container-inner {
+  .not-found-container-inner {
     gap: 3rem;
   }
-  .nout-found-container h1 {
+  .not-found-container h1 {
     font-size: 16rem;
   }
-  .nout-found-container h2 {
+  .not-found-container h2 {
     font-size: 2.8rem;
   }
 }
 
 /* 768px / 48em ====================== */
 @media (max-width: 48em) {
-  .nout-found-container {
+  .not-found-container {
     gap: 4rem;
   }
 
-  .nout-found-container-inner {
+  .not-found-container-inner {
     gap: 2rem;
   }
-  .nout-found-container h1 {
+  .not-found-container h1 {
     font-size: 14rem;
   }
-  .nout-found-container h2 {
+  .not-found-container h2 {
     font-size: 2.6rem;
   }
 }
