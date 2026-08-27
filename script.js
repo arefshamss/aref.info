@@ -1,4 +1,4 @@
-const card = document.querySelector(".glass-card");
+const card = document.querySelector(".card");
 
 if (card) {
   let targetRotateX = 0;
@@ -210,4 +210,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(fastPhase);
   });
+});
+
+///////////////////////////////////////////////////////////
+// Contact Form
+
+const form = document.getElementById("contact-form");
+const result = document.getElementById("form-result");
+const submitButton = form.querySelector(".form-submit");
+
+function setFormMessage(message, type = "") {
+  result.textContent = message;
+  result.classList.remove("is-success", "is-error");
+
+  if (type) {
+    result.classList.add(`is-${type}`);
+  }
+}
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  if (form.classList.contains("is-loading")) return;
+
+  form.classList.add("is-loading");
+  submitButton.disabled = true;
+  setFormMessage("");
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const resultData = await response.json();
+
+    if (response.ok && resultData.success) {
+      setFormMessage("Your message has been sent successfully.", "success");
+      form.reset();
+    } else {
+      setFormMessage(
+        resultData.message || "Message delivery failed. Please try again.",
+        "error",
+      );
+    }
+  } catch (error) {
+    setFormMessage(
+      "Unable to connect to the server. Please check your internet connection and try again.",
+      "error",
+    );
+  } finally {
+    form.classList.remove("is-loading");
+    submitButton.disabled = false;
+  }
 });

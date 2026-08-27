@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Aref Shamspour - Contact Me</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <!--Favicon-->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+    <script
+      defer
+      src="https://code.iconify.design/iconify-icon/2.2.0/iconify-icon.min.js"
+    ></script>
+  </head>
+  <body class="contact-page">
+    <main>
+      <section class="contact-section">
+        <div class="container contact-container">
+          <div class="contact-form-container">
+            <span class="text--subheading center-text contact-title"
+              >Contact Me</span
+            >
+            <form class="contact-form" id="contact-form">
+              <div class="contact-form-content">
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="ddc33c54-dd40-479d-8e52-f531f18d92ba"
+                />
+
+                <input
+                  id="first-name"
+                  type="text"
+                  placeholder="First Name"
+                  name="first-name"
+                  required
+                />
+                <input
+                  id="last-name"
+                  type="text"
+                  placeholder="Last Name"
+                  name="last-name"
+                  required
+                />
+
+                <input
+                  id="phone-number"
+                  type="tel"
+                  placeholder="Phone Number"
+                  name="phone-number"
+                  required
+                />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  required
+                />
+                <textarea
+                  id="message"
+                  placeholder="Message Text"
+                  name="message"
+                  rows="5"
+                  data-lenis-prevent
+                  required
+                ></textarea>
+                <button type="submit" class="btn btn--lg btn--full form-submit">
+                  <span>Send</span>
+                </button>
+
+                <p id="form-result" class="form-result" aria-live="polite"></p>
+              </div>
+
+              <div class="contact-form-loader" aria-hidden="true">
+                <span>Sending your message...</span>
+              </div>
+            </form>
+          </div>
+          <a href="./index.html" class="btn btn--md btn--outline-primary">
+            <iconify-icon
+              class="icon"
+              icon="material-symbols:home-rounded"
+            ></iconify-icon>
+            <span>Back to Main Page</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <script src="/script.js"></script>
+  </body>
+</html>
