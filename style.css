@@ -124,9 +124,12 @@ html {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(
-    135deg,
+  background-color: var(--color-bg);
+  background-image: linear-gradient(
+    150deg,
     var(--color-bg) 0%,
+    var(--color-bg) 40%,
+    var(--color-bg-secondary) 70%,
     var(--color-bg-secondary) 100%
   );
   user-select: none;
@@ -386,6 +389,13 @@ body p {
   justify-content: center;
   width: 100%;
   padding: 2rem;
+}
+
+/* 368px / 23em ====================== */
+@media (max-width: 23em) {
+  .container {
+    padding: 1.8rem;
+  }
 }
 
 /* ============================================ */
@@ -834,8 +844,7 @@ strong {
 /* 768px / 48em ==================== */
 @media (max-width: 48em) {
   .card {
-    padding: 4rem 3rem;
-    margin: 2rem;
+    padding: 5rem 3rem;
   }
 
   .card-text-container {
@@ -843,10 +852,17 @@ strong {
   }
 }
 
+/* 680px / 42.5em ==================== */
+@media (max-width: 42.5em) {
+  .card-container {
+    gap: 3rem;
+  }
+}
+
 /* 432px / 27em ====================== */
 @media (max-width: 27em) {
   .card {
-    padding: 3.5rem 2rem;
+    padding: 4rem 2rem;
   }
 }
 
@@ -910,15 +926,44 @@ strong {
   transform: translateY(-2px);
 }
 
+/* 1200px / 75em ===================== */
+@media (max-width: 75em) {
+  .profile-pic {
+    width: 19rem;
+    height: 19rem;
+  }
+}
+
 /* 880px / 55em ====================== */
 @media (max-width: 55em) {
   .main-btn span {
     transform: translateY(-1px);
   }
+
+  .profile-pic {
+    width: 18rem;
+    height: 18rem;
+  }
 }
 
-/* 768px / 48em ==================== */
-@media (max-width: 48em) {
+/* 480px / 30em ====================== */
+@media (max-width: 30em) {
+  .profile-pic {
+    width: 17rem;
+    height: 17rem;
+  }
+}
+
+/* 432px / 27em ====================== */
+@media (max-width: 27em) {
+  .profile-pic {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+/* 340px / 21.25em ==================== */
+@media (max-width: 21.25em) {
   .profile-pic {
     width: 15rem;
     height: 15rem;
