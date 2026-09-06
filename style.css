@@ -130,6 +130,7 @@ body {
     var(--color-bg-secondary) 100%
   );
   user-select: none;
+  position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -374,6 +375,7 @@ body p {
 .section {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -384,7 +386,6 @@ body p {
   justify-content: center;
   width: 100%;
   padding: 2rem;
-  position: relative;
 }
 
 /* ============================================ */
@@ -758,6 +759,7 @@ strong {
 /* ============================================ */
 
 .card {
+  animation: slideUp 0.8s ease-out;
   background: rgba(var(--color-white-rgb), 0.03);
   border: 1px solid rgba(var(--color-white-rgb), 0.12);
   backdrop-filter: blur(5px);
@@ -816,10 +818,6 @@ strong {
 
 .card:hover::before {
   animation: shine 0.7s ease-in-out;
-}
-
-.card {
-  animation: slideUp 0.8s ease-out;
 }
 
 /* 1024px / 64em ===================== */
