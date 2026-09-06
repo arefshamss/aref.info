@@ -8,7 +8,28 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
+
+    <!-- Primary SEO -->
     <title>Aref Shamspour</title>
+    <meta name="description" content="Web Developer" />
+    <meta name="author" content="Aref Shamspour" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aref.info/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Aref Shamspour" />
+    <meta
+      property="og:description"
+      content="Personal space of Aref Shamspour."
+    />
+    <meta property="og:url" content="https://aref.info/" />
+    <meta property="og:image" content="https://aref.info/images/user.webp" />
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,95 +41,112 @@
       fetchpriority="high"
     />
     <link rel="stylesheet" href="/style.css" />
+
     <!--Favicon-->
     <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- Schema.org: Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aref Shamspour",
+        "alternateName": ["عارف شمس‌پور", "عارف شمس پور"],
+        "url": "https://aref.info/",
+        "sameAs": ["https://arefshams.com"]
+      }
+    </script>
+
     <script
       defer
       src="https://code.iconify.design/iconify-icon/2.2.0/iconify-icon.min.js"
     ></script>
+
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Main Container -->
-    <div class="container">
-      <div class="card">
-        <div class="card-container">
-          <!-- Profile Picture -->
-          <div class="profile-container">
-            <img
-              src="/images/user.webp"
-              alt="Aref Shamspour"
-              fetchpriority="high"
-              class="profile-pic"
-            />
-          </div>
-          <div class="card-text-container">
-            <!-- Name -->
-            <h1 class="text--title">Aref Shamspour</h1>
+    <main>
+      <section class="section main-section">
+        <div class="container">
+          <div class="card">
+            <div class="card-container">
+              <!-- Profile Picture -->
+              <div class="profile-container">
+                <img
+                  src="/images/user.webp"
+                  alt="Aref Shamspour"
+                  fetchpriority="high"
+                  class="profile-pic"
+                />
+              </div>
+              <div class="card-text-container">
+                <!-- Name -->
+                <h1 class="text--title">Aref Shamspour</h1>
 
-            <!-- Title -->
-            <p
-              class="text--subheading name-subtitle typing"
-              data-speed="100"
-              data-delay="1000"
-            >
-              Web Developer
-            </p>
+                <!-- Title -->
+                <p
+                  class="text--subheading name-subtitle typing"
+                  data-speed="100"
+                  data-delay="1000"
+                >
+                  Web Developer
+                </p>
 
-            <!-- Main Button -->
-            <a
-              href="/contact.html"
-              title="Contact Me"
-              class="btn btn--lg btn--outline-primary main-btn"
-            >
-              <span>Leave a Message</span>
+                <!-- Main Button -->
+                <a
+                  href="/contact.html"
+                  title="Contact Me"
+                  class="btn btn--lg btn--outline-primary main-btn"
+                >
+                  <span>Leave a Message</span>
 
-              <iconify-icon
-                class="icon"
-                icon="boxicons:message-detail"
-              ></iconify-icon>
-            </a>
-          </div>
-          <!-- Social Media Links -->
-          <div class="social-links">
-            <a
-              href="https://t.me/arefshamss"
-              target="_blank"
-              class="social-link"
-              title="Telegram"
-            >
-              <iconify-icon
-                class="icon"
-                icon="icon-park-outline:telegram"
-              ></iconify-icon>
-            </a>
-            <a
-              href="https://instagram.com/arefshamss"
-              target="_blank"
-              class="social-link"
-              title="Instagram"
-            >
-              <iconify-icon class="icon" icon="bi:instagram"></iconify-icon>
-            </a>
-            <a
-              href="mailto:sh.aref@ymail.com"
-              target="_blank"
-              class="social-link"
-              title="Email"
-            >
-              <iconify-icon
-                class="icon"
-                icon="fa6-solid:envelope"
-              ></iconify-icon>
-            </a>
-            <a
-              href="https://github.com/arefshamss"
-              target="_blank"
-              class="social-link"
-              title="Github"
-            >
-              <iconify-icon class="icon" icon="bi:github"></iconify-icon>
-            </a>
-            <!-- <a
+                  <iconify-icon
+                    class="icon"
+                    icon="boxicons:message-detail"
+                  ></iconify-icon>
+                </a>
+              </div>
+              <!-- Social Media Links -->
+              <div class="social-links">
+                <a
+                  href="https://t.me/arefshamss"
+                  target="_blank"
+                  class="social-link"
+                  title="Telegram"
+                >
+                  <iconify-icon
+                    class="icon"
+                    icon="icon-park-outline:telegram"
+                  ></iconify-icon>
+                </a>
+                <a
+                  href="https://instagram.com/arefshamss"
+                  target="_blank"
+                  class="social-link"
+                  title="Instagram"
+                >
+                  <iconify-icon class="icon" icon="bi:instagram"></iconify-icon>
+                </a>
+                <a
+                  href="mailto:sh.aref@ymail.com"
+                  target="_blank"
+                  class="social-link"
+                  title="Email"
+                >
+                  <iconify-icon
+                    class="icon"
+                    icon="fa6-solid:envelope"
+                  ></iconify-icon>
+                </a>
+                <a
+                  href="https://github.com/arefshamss"
+                  target="_blank"
+                  class="social-link"
+                  title="Github"
+                >
+                  <iconify-icon class="icon" icon="bi:github"></iconify-icon>
+                </a>
+                <!-- <a
             href="https://www.linkedin.com/in/arefshamspour"
             target="_blank"
             class="social-link"
@@ -116,19 +154,19 @@
           >
             <i class="fab fa-linkedin"></i>
           </a> -->
-            <a
-              href="https://www.youtube.com/@arefshamss?sub_confirmation=1"
-              target="_blank"
-              class="social-link"
-              title="Youtube"
-            >
-              <iconify-icon class="icon" icon="bi:youtube"></iconify-icon>
-            </a>
+                <a
+                  href="https://www.youtube.com/@arefshamss?sub_confirmation=1"
+                  target="_blank"
+                  class="social-link"
+                  title="Youtube"
+                >
+                  <iconify-icon class="icon" icon="bi:youtube"></iconify-icon>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <script src="/script.js"></script>
+      </section>
+    </main>
   </body>
 </html>
