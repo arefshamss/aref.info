@@ -1152,6 +1152,14 @@ strong {
   transform: scale(1.01);
 }
 
+.input-error {
+  border-color: rgba(var(--color-danger-rgb), 0.7) !important;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(var(--color-danger-rgb), 0.3) !important;
+}
+
 /* Prevent browser autofill light background */
 .contact-form input:-webkit-autofill,
 .contact-form input:-webkit-autofill:hover,
