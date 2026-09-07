@@ -274,12 +274,10 @@ if (form && result) {
   });
 }
 
-// Contact form validation & phone input filter
+// Contact form validation & phone input filter (English site)
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
-  const fields = contactForm.querySelectorAll(
-    "input[required], textarea[required]",
-  );
+  const fields = contactForm.querySelectorAll("input, textarea");
 
   fields.forEach((field) => {
     field.addEventListener("invalid", () => {
@@ -287,7 +285,6 @@ if (contactForm) {
     });
 
     field.addEventListener("input", () => {
-      field.setCustomValidity("");
       field.classList.remove("input-error");
     });
   });
