@@ -89,6 +89,8 @@ aref.info/
 ├── CNAME
 ├── robots.txt
 ├── sitemap.xml
+├── package.json
+├── LICENSE
 └── images/
     ├── favicon.png
     ├── user.webp
@@ -110,7 +112,6 @@ The website includes technical SEO foundations to improve its structure and sear
 - Page-specific titles and meta descriptions
 - Canonical URLs
 - Open Graph metadata
-- Persian locale and RTL structure
 - `robots.txt`
 - `sitemap.xml`
 - Schema.org Person structured data
